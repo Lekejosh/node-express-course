@@ -2,7 +2,8 @@ const http = require('http')
 
 const server = http.createServer((req, res) => {
   if (req.url === '/') {
-    res.end('Home Page')
+    res.write('Home Page');
+    res.end()
   }
   else if (req.url === '/about') {
     // blocking code
@@ -11,10 +12,10 @@ const server = http.createServer((req, res) => {
         console.log(`${i} ${j}`)
       }
     }
-    res.write('About Page')
+    res.write('About Page');
     res.end()
   }else
-  res.write('Error Page')
+  res.write('Error Page');
   res.end()
 })
 
